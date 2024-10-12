@@ -30,7 +30,7 @@ function Header() {
   return (
     <>
       <header
-        className={`${scrolled ? "" : "fixed "}  duration-300 z-[99999999999] w-full  `}
+        className={`${scrolled ? "" : "fixed "}  duration-300 z-[9999] w-full  `}
       >
         <div className="bg-black py-4 text-[9px] sm:text-[16px] w-full  text-white  flex flex-wrap">
           <div className="flex flex-wrap text-center justify-center m-auto gap-3 md:gap-9">
@@ -46,7 +46,7 @@ function Header() {
         <nav
           className={`flex ${
             scrolled ? "fixed top-0" : "top-[5%]"
-          } bg-white duration-300  w-full   justify-between  sm:flex-nowrap items-center border-b py-5`}
+          } bg-white duration-300  w-full   justify-between z-[9099]  sm:flex-nowrap items-center border-b py-5`}
         >
           <div className=" sm:w-auto  ps-4 sm:ps-0  text-[35px] text-center font-semibold">
             <div className="overflow-hidden w-[50px] sm:w-[100px] rounded-full" >
