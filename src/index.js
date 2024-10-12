@@ -6,11 +6,24 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Layout from './Components/Layout';
+import ProductPage from './ProductPage';
+import ProductDetail from './ProductDetail';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>
+    element: <Layout/>,
+    children:[
+      {
+        path:"/",
+        element:<ProductPage />    
+      } ,
+      {
+        path:"/product/:productId" ,
+         element:<ProductDetail />
+      }
+    ]
   },
 ]);
 
