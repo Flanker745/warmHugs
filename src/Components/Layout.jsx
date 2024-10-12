@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 
 function Layout() {
+  const [searchQuery, setSearchQuery] = useState(""); // Add state for search query
+
   return (
     <>
-      <Header />
-      <Outlet />
+      <Header setSearchQuery={setSearchQuery} /> {/* Pass the setter */}
+      <Outlet context={{ searchQuery }} /> {/* Pass searchQuery to Outlet */}
       <Footer />
     </>
   );
