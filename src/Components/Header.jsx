@@ -46,7 +46,7 @@ function Header({ setSearchQuery }) { // Accept setSearchQuery as a prop
               <img src={logo} alt="" />
             </div>
           </div>
-          <div onClick={() => setNev(!showNev)} className="block order-3990 lg:hidden pe-4 text-[35px]">
+          <div onClick={() => setNev(!showNev)} className="block order-3 lg:hidden pe-4 text-[35px]">
             <IoMenu />
           </div>
           <div className={`${showNev ? "end-0" : "end-[-100%] lg:end-0"} duration-300 lg:w-[70%] absolute w-[80%] md:w-[35%] bg-neutral-200 lg:bg-inherit h-screen lg:h-fit top-full lg:relative`}>
