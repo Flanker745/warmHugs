@@ -8,7 +8,7 @@ function Layout() {
 
   return (
     <>
-      <Header setSearchQuery={setSearchQuery} /> {/* Pass the setter */}
+    <Header setSearchQuery={setSearchQuery}  />
       <Outlet context={{ searchQuery }} /> {/* Pass searchQuery to Outlet */}
       <Footer />
     </>

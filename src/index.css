@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Removed CSS */
+
 body {
   background-color: #f4f4f9; /* Slight off-white background for the page */
   font-family: 'Poppins', sans-serif; /* Modern font */
@@ -12,7 +14,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
-  padding: 40px;
+  padding: 20px;
 }
 
 .product-card {

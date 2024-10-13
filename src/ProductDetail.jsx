@@ -10,6 +10,7 @@ const ProductDetail = () => {
     const { addToCart } = useCart();
     const navigate = useNavigate();
     const [cartAnimation, setCartAnimation] = useState(false);
+    const [mainImage, setMainImage] = useState(product.images[0]); // Initial main image
 
     const handleAddToCart = (product) => {
         addToCart(product);
@@ -21,15 +22,31 @@ const ProductDetail = () => {
         navigate('/checkout'); // Navigate to the checkout page
     };
 
+    // Function to handle image click and set the main image
+    const handleImageClick = (image) => {
+        setMainImage(image);
+    };
+
     return (
         <div className="product-detail p-8">
             <div className="flex flex-wrap justify-between">
                 {/* Product Images */}
-                <div className="product-images w-full md:w-1/2">
-                    <img src={product.images[0]} alt={product.name} className="w-full h-96 object-cover mb-4" />
+                <div className="product-images flex flex-wrap w-full md:w-1/2">
+                    {/* Main Image */}
+                    <img 
+                        src={mainImage} 
+                        alt={product.name} 
+                        className="w-full h-96 sm:h-[600px] object-cover mb-4" 
+                    />
                     <div className="grid grid-cols-4 gap-2">
-                        {product.images.slice(1).map((image, index) => (
-                            <img key={index} src={image} alt={`${product.name} ${index + 1}`} className="w-full h-24 object-cover" />
+                        {product.images.map((image, index) => (
+                            <img 
+                                key={index} 
+                                src={image} 
+                                alt={`${product.name} ${index + 1}`} 
+                                className="w-full h-32 object-cover cursor-pointer" 
+                                onClick={() => handleImageClick(image)} // Change main image on click
+                            />
                         ))}
                     </div>
                 </div>
@@ -39,9 +56,9 @@ const ProductDetail = () => {
                     <h2 className="text-3xl font-semibold">{product.name}</h2>
                     <p className="text-yellow-500 my-2">Rating: {product.rating} ⭐</p>
                     <div className="text-lg mt-1">
-                        <span className="line-through text-gray-500">${product.price}</span>
+                        <span className="line-through text-gray-500">₹{product.price}</span>
                         <span className="font-bold text-red-600">
-                            ${(product.price - (product.price * product.discount) / 100).toFixed(2)}
+                        ₹{(product.price - (product.price * product.discount) / 100).toFixed(2)}
                         </span>
                     </div>
                     <p className="mt-4">{product.description}</p>

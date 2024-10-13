@@ -15,49 +15,93 @@ import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 import Checkout from './Checkout';
 import Confirmation from './Confirmation';
+import Login from './Login';
+import SignUp from './SignUp';
+import Profile from './Profile';
+import ProtectedRoute from './Components/ProtectedRoute'; // Import the ProtectedRoute
+import { AuthProvider } from './AuthContext';
+import Upcoming from './Upcoming';
+import GarmentPlanning from './GarmentPlanning';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout/>,
-    children:[
+    element: <Layout />,
+    children: [
       {
-        path:"/",
-        element:<ProductPage />    
-      } ,
-      {
-        path:"/product/:productId" ,
-         element:<ProductDetail />
+        path: "/",
+        element: <ProductPage />
       },
       {
-        path:"/cart" ,
-         element:<Cart />
+        path: "/product/:productId",
+        element: <ProductDetail />
       },
       {
-        path:"/about" ,
-         element:<AboutUs />
+        path: "/cart",
+        element: (
+          <ProtectedRoute>
+            <Cart />
+          </ProtectedRoute>
+        )
       },
       {
-        path:"/contact",
-        element:<ContactUs/>
+        path: "/about",
+        element: <AboutUs />
       },
       {
-        path:"/checkout" , 
-        element:<Checkout /> 
+        path: "/contact",
+        element: <ContactUs />
       },
       {
-        path:"/confirmation" ,
-         element:<Confirmation />
-      }
+        path: "/checkout",
+        element: (
+          <ProtectedRoute>
+            <Checkout />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: "/confirmation",
+        element: (
+          <ProtectedRoute>
+            <Confirmation />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/signUp",
+        element: <SignUp />
+      },
+      {
+        path: "/upcomming",
+        element: <Upcoming />
+      },
+      {
+        path:"/GarmentPlanning",
+        element:<GarmentPlanning/>
+      },
+      {
+        path: "/profile",
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        )
+      },
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-
   <React.StrictMode>
     <CartProvider>
-    <RouterProvider router={router} />
+      <AuthProvider>
+      <RouterProvider router={router} />
+      </AuthProvider>
     </CartProvider>
   </React.StrictMode>
 );
