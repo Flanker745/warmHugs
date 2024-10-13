@@ -48,22 +48,45 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-4 ">Organizational Structure</h2>
       <div className="text-lg mb-4">
-        <h3 className="font-semibold">Board of Directors:</h3>
-        <ul className="list-disc list-inside mb-4">
-          <li>CEO/Founder: Ritika Rajpurohit</li>
-          <li>CFO: Anisha Rajpurohit</li>
-          <li>CMO: Sayali Kamkar</li>
-        </ul>
-        <h3 className="font-semibold">Departments:</h3>
-        <ul className="list-disc list-inside mb-4">
-          <li>Design & Product Development</li>
-          <li>Manufacturing & Supply Chain</li>
-          <li>Marketing & Sales</li>
-          <li>Retail Operations</li>
-        </ul>
-      </div>
+  <h3 className="font-semibold">Organizational Structure:</h3>
+  <h4 className="font-semibold">1. Board of Directors:</h4>
+  <ul className="list-disc list-inside mb-4">
+    <li>CEO/Founder: Ritika Rajpurohit</li>
+    <li>CFO: Anisha Rajpurohit</li>
+    <li>CMO: Sayali Kamkar</li>
+  </ul>
+
+  <h4 className="font-semibold">2. Departments:</h4>
+
+  <h5 className="font-semibold">• Design & Product Development:</h5>
+  <ul className="list-disc list-inside mb-4">
+    <li>Head Designer: Ketki Kamble</li>
+    <li>Product Manager: Shreya Shinde</li>
+    <li>Design Team: Saburi Shinde</li>
+  </ul>
+
+  <h5 className="font-semibold">• Manufacturing & Supply Chain:</h5>
+  <ul className="list-disc list-inside mb-4">
+    <li>Production Manager: Shreya Shinde</li>
+    <li>Sourcing Manager: Sayali Kamkar</li>
+    <li>Quality Control Team: Harshali Rathod, Priya Sharma, Tanvi Surve</li>
+  </ul>
+
+  <h5 className="font-semibold">• Marketing & Sales:</h5>
+  <ul className="list-disc list-inside mb-4">
+    <li>Marketing Manager: Princy Kumar</li>
+    <li>Sales Manager: Rajshree Sontanke</li>
+    <li>Social Media Team: Vaibhavi Nashikkar</li>
+  </ul>
+
+  <h5 className="font-semibold">• Retail Operations:</h5>
+  <ul className="list-disc list-inside mb-4">
+    <li>Store Manager: Diljit Khurana</li>
+    <li>Customer Service Team: Tony Pende and Saniya Thonde</li>
+  </ul>
+</div>
+
     </div>
   );
 };

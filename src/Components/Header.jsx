@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { IoSearch } from "react-icons/io5";
+import { IoSearch, IoMenu, IoClose } from "react-icons/io5"; // Import IoClose
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { IoMenu } from "react-icons/io5";
 import logo from "./../assets/b131427a-26be-4597-a09e-a12a8cbf9fcd.jpeg";
 import { useCart } from "../CartContext";
 import { Link, useLocation } from "react-router-dom";
@@ -18,11 +17,7 @@ function Header({ setSearchQuery }) {
   // Check login status when component mounts
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("user"));
-    if (storedData && storedData.login) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
+    setIsLoggedIn(storedData?.login || false);
   }, []); // Empty dependency array ensures this runs once on mount
 
   const handleSearchInputChange = (e) => {
@@ -68,14 +63,14 @@ function Header({ setSearchQuery }) {
             <a className="underline" href="#">Shop Now</a>
           </div>
         </div>
-        <nav className={`flex ${scrolled ? "fixed top-0" : "top-[5%]"} bg-white  duration-300 w-full justify-between z-[9099] sm:flex-nowrap items-center border-b py-5`}>
+        <nav className={`flex ${scrolled ? "fixed top-0" : "top-[5%]"} bg-white duration-300 w-full justify-between z-[9099] sm:flex-nowrap items-center border-b py-5`}>
           <div className="sm:w-auto ps-4 sm:ps-2 text-[30px] sm:text-[35px] text-center font-semibold">
-            <div className="overflow-hidden  w-[45px] sm:w-[100px] rounded-full">
-              <img src={logo} alt="" />
+            <div className="overflow-hidden w-[45px] sm:w-[100px] rounded-full">
+              <img src={logo} alt="Logo" />
             </div>
           </div>
-          <div onClick={() => setNev(!showNev)} className="block order-3 lg:hidden pe-4 text-[30px] sm:text-[35px]">
-            <IoMenu />
+          <div onClick={() => setNev(!showNev)} className="block order-3 lg:hidden pe-4 text-[30px] sm:text-[35px] cursor-pointer">
+            {showNev ? <IoClose /> : <IoMenu />} {/* Toggle icon here */}
           </div>
           <div
             ref={menuRef}
@@ -85,8 +80,7 @@ function Header({ setSearchQuery }) {
               <Link to={"/"} className="hover:underline cursor-pointer">Home</Link>
               <Link to={"/about"} className="hover:underline cursor-pointer">About</Link>
               <Link to={"/upcomming"} className="hover:underline cursor-pointer">Upcomming</Link>
-              <Link to={"/GarmentPlanning"} className="hover:underline cursor-pointer">GarmentPlanning</Link>
-
+              <Link to={"/GarmentPlanning"} className="hover:underline cursor-pointer">Garment Planning</Link>
               <Link to={"/contact"} className="hover:underline cursor-pointer">Contact Us</Link>
               {isLoggedIn ? (
                 <Link to={"/profile"} className="hover:underline cursor-pointer">Profile</Link>
@@ -117,7 +111,7 @@ function Header({ setSearchQuery }) {
           </div>
         </nav>
       </header>
-      <div className="h-[24vh] sm:h-0 sm:pt-[190px]"></div>
+      <div className="h-[15vh] sm:h-0 sm:pt-[190px]"></div>
     </>
   );
 }
