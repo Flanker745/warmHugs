@@ -79,7 +79,7 @@ function Header({ setSearchQuery }) {
             <ul className="flex flex-col gap-[60px] mt-9 lg:mt-0 lg:gap-0 lg:flex-row w-full text-[18px] items-center justify-around">
               <Link to={"/"} className="hover:underline cursor-pointer">Home</Link>
               <Link to={"/about"} className="hover:underline cursor-pointer">About</Link>
-              <Link to={"/upcomming"} className="hover:underline cursor-pointer">Upcomming</Link>
+              <Link to={"/upcomming"} className="hover:underline cursor-pointer">Upcomming Event</Link>
               <Link to={"/GarmentPlanning"} className="hover:underline cursor-pointer">Garment Planning</Link>
               <Link to={"/contact"} className="hover:underline cursor-pointer">Contact Us</Link>
               {isLoggedIn ? (
